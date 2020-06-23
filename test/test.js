@@ -13,9 +13,9 @@ describe('rdf-sparql-builder', () => {
     })
   })
 
-  describe('nq', () => {
+  describe('ne', () => {
     it('should be a function', () => {
-      strictEqual(typeof sparql.nq, 'function')
+      strictEqual(typeof sparql.ne, 'function')
     })
   })
 
