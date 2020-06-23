@@ -4,7 +4,7 @@ const Select = require('./lib/Select')
 
 module.exports = {
   eq: (a, b) => new CompareFilter('=', a, b),
-  nq: (a, b) => new CompareFilter('!=', a, b),
+  ne: (a, b) => new CompareFilter('!=', a, b),
   lt: (a, b) => new CompareFilter('<', a, b),
   gt: (a, b) => new CompareFilter('>', a, b),
   lte: (a, b) => new CompareFilter('<=', a, b),
