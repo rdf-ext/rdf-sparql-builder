@@ -24,6 +24,7 @@ const low = rdf.literal('10.0')
 
 const query = sparql.select([room, sparql.min(temperature, minTemperature), sparql.max(temperature, maxTemperature)])
   .distinct()
+  .from(ns.ex.graph)
   .where([
     sparql.select([observation])
       .where([
