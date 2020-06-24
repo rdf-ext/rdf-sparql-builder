@@ -9,12 +9,15 @@ const sparql = require('..')
 
 const ns = {
   ex: namespace('http://example.org/'),
-  rdf: namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
+  rdf: namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 }
 
 const observation = rdf.variable('observation')
 const date = rdf.variable('date')
 const room = rdf.variable('room')
+const humidity = rdf.variable('humidity')
+const pressure = rdf.variable('pressure')
+const graph = rdf.variable('graph')
 const temperature = rdf.variable('temperature')
 const minTemperature = rdf.variable('minTemperature')
 const maxTemperature = rdf.variable('maxTemperature')
@@ -32,7 +35,9 @@ const query = sparql.select([room, sparql.min(temperature, minTemperature), spar
       ]),
     [observation, ns.rdf.type, ns.ex.Observation],
     [observation, ns.ex.date, date],
-    [observation, [ns.ex.measure, ns.ex.temperature], temperature]
+    [observation, [ns.ex.measure, ns.ex.temperature], temperature],
+    [observation, ns.ex.humidity, humidity, graph],
+    [observation, ns.ex.pressure, pressure, graph]
   ])
   .filter([
     sparql.gte(date, start),
