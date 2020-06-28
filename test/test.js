@@ -43,6 +43,12 @@ describe('rdf-sparql-builder', () => {
     })
   })
 
+  describe('in', () => {
+    it('should be a function', () => {
+      strictEqual(typeof sparql.in, 'function')
+    })
+  })
+
   describe('sum', () => {
     it('should be a function', () => {
       strictEqual(typeof sparql.sum, 'function')

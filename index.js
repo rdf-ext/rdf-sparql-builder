@@ -1,5 +1,6 @@
 const Aggregate = require('./lib/Aggregate')
 const CompareFilter = require('./lib/CompareFilter')
+const InFilter = require('./lib/InFilter')
 const Select = require('./lib/Select')
 
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
   gt: (a, b) => new CompareFilter('>', a, b),
   lte: (a, b) => new CompareFilter('<=', a, b),
   gte: (a, b) => new CompareFilter('>=', a, b),
+  in: (variable, values) => new InFilter(variable, values),
 
   sum: (variable, as) => new Aggregate('SUM', variable, as),
   min: (variable, as) => new Aggregate('MIN', variable, as),
