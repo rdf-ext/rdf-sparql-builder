@@ -23,4 +23,8 @@ const query = sparql.select([date, temperature])
     [observation, [ns.ex.measure, ns.ex.temperature], temperature]
   ])
 
-console.log(query.toString())
+if (require.main === module) {
+  console.log(query.toString())
+}
+
+module.exports = query

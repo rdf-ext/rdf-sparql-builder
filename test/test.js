@@ -2,7 +2,7 @@ const { strictEqual } = require('assert')
 const { describe, it } = require('mocha')
 const sparql = require('..')
 
-describe('rdf-sparql-builder', () => {
+describe('Public API', () => {
   it('should be an object', () => {
     strictEqual(typeof sparql, 'object')
   })

@@ -1,0 +1,9 @@
+SELECT ?date ?temperature WHERE {
+  ?observation <http://www.w3.org/1999/02/22-rdf-syntax-ns#typetype> <http://example.org/Observation> .
+  ?observation <http://example.org/date> ?date .
+  ?observation <http://example.org/temperature> ?temperature .
+  FILTER (
+    (?date >= "2020-01-01T00:00:00.000Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>) &&
+    (?date < "2020-01-02T00:00:00.000Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>)
+  )
+}

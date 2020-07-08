@@ -54,4 +54,8 @@ const query = sparql.select([room, sparql.min(temperature, minTemperature), spar
   .limit(100)
   .offset(5)
 
-console.log(query.toString())
+if (require.main === module) {
+  console.log(query.toString())
+}
+
+module.exports = query

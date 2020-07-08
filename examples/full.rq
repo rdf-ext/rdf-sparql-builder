@@ -1,0 +1,24 @@
+SELECT DISTINCT ?room (MIN(?temperature) AS ?minTemperature) (MAX(?temperature) AS ?maxTemperature) FROM <http://example.org/graph> WHERE {
+  {
+    SELECT ?observation WHERE {
+      <http://example.org/selected> <http://example.org/contains> ?observation .
+    }
+  }
+  ?observation <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Observation> .
+  ?observation <http://example.org/date> ?date .
+  ?observation <http://example.org/measure>/<http://example.org/temperature> ?temperature .
+  }
+  GRAPH ?graph {
+    ?observation <http://example.org/humidity> ?humidity .
+    ?observation <http://example.org/pressure> ?pressure .
+  }
+  FILTER (
+    (?date >= "2020-01-01T00:00:00.000Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>) &&
+    (?date < "2020-01-02T00:00:00.000Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>)
+  )
+}
+GROUP BY ?room
+HAVING (
+  (?minTemperature >= "10.0")
+)
+ORDER BY ASC(?minTemperature) DESC(?maxTemperature) LIMIT 100 OFFSET 5

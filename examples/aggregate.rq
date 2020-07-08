@@ -1,0 +1,6 @@
+SELECT ?room (MIN(?temperature) AS ?minTemperature) (MAX(?temperature) AS ?maxTemperature) WHERE {
+  ?observation <http://www.w3.org/1999/02/22-rdf-syntax-ns#typetype> <http://example.org/Observation> .
+  ?observation <http://example.org/room> ?room .
+  ?observation <http://example.org/temperature> ?temperature .
+}
+GROUP BY ?room

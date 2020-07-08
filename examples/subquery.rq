@@ -1,0 +1,10 @@
+SELECT ?date ?temperature WHERE {
+  {
+    SELECT ?observation WHERE {
+      <http://example.org/selected> <http://example.org/contains> ?observation .
+    }
+  }
+  ?observation <http://www.w3.org/1999/02/22-rdf-syntax-ns#typetype> <http://example.org/Observation> .
+  ?observation <http://example.org/date> ?date .
+  ?observation <http://example.org/temperature> ?temperature .
+}

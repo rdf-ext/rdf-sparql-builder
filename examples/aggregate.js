@@ -26,4 +26,8 @@ const query = sparql.select([room, sparql.min(temperature, minTemperature), spar
   ])
   .groupBy([room])
 
-console.log(query.toString())
+if (require.main === module) {
+  console.log(query.toString())
+}
+
+module.exports = query
