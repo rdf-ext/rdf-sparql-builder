@@ -1,11 +1,14 @@
 const Aggregate = require('./lib/Aggregate')
 const Bind = require('./lib/Bind')
 const CompareFilter = require('./lib/CompareFilter')
+const Describe = require('./lib/Describe')
 const Filters = require('./lib/Filters')
 const Func = require('./lib/Func')
 const InFilter = require('./lib/InFilter')
 const Optional = require('./lib/Optional')
 const Select = require('./lib/Select')
+const SubQuery = require('./lib/SubQuery')
+const Union = require('./lib/Union')
 const smartAddPatterns = require('./lib/utils/smartAddPatterns')
 
 module.exports = {
@@ -26,9 +29,11 @@ module.exports = {
   lang: term => new Func('LANG', [term]),
   langMatches: (tag, range) => new Func('LANGMATCHES', [tag, range]),
 
+  describe: variables => new Describe(variables),
   select: (variables, options) => new Select(variables, options),
 
   bind: (variable, content) => new Bind(variable, content),
   filter: filters => new Filters(filters),
-  optional: patterns => smartAddPatterns(new Optional(), patterns)
+  optional: patterns => smartAddPatterns(new Optional(), patterns),
+  union: queries => new Union(queries.map(query => smartAddPatterns(new SubQuery(), query)))
 }
