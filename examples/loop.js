@@ -22,8 +22,8 @@ const someArray = [
   [observation, ns.ex.temperature, temperature],
 ];
 
-const unions = someArray.map((triples) => {
-  return [sparql.select(['*']).where([triples]).limit(10)];
+const unions = someArray.map((q) => {
+  return [sparql.select(['*']).where([q]).limit(10)];
 });
 
 const query = sparql
