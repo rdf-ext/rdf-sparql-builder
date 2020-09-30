@@ -1,6 +1,6 @@
 /*
 
-  This example builds a query ussing a loop.
+  This example builds a query using a loop.
 
 */
 const rdf = require("@rdfjs/data-model");
