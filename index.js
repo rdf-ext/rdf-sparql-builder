@@ -1,6 +1,7 @@
 const Aggregate = require('./lib/Aggregate')
 const Bind = require('./lib/Bind')
 const CompareFilter = require('./lib/CompareFilter')
+const Construct = require('./lib/Construct')
 const Describe = require('./lib/Describe')
 const Filters = require('./lib/Filters')
 const Func = require('./lib/Func')
@@ -29,6 +30,7 @@ module.exports = {
   lang: term => new Func('LANG', [term]),
   langMatches: (tag, range) => new Func('LANGMATCHES', [tag, range]),
 
+  construct: patterns => new Construct(patterns),
   describe: variables => new Describe(variables),
   select: (variables, options) => new Select(variables, options),
 
