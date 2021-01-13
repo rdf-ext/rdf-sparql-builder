@@ -1,6 +1,6 @@
 {
   "name": "rdf-sparql-builder",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "SPARQL query builder",
   "main": "index.js",
   "scripts": {
