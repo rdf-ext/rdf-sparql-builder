@@ -27,8 +27,11 @@ module.exports = {
   avg: (variable, as) => new Aggregate('AVG', variable, as),
 
   coalesce: (...args) => new Func('COALESCE', args),
+  day: term => new Func('DAY', [term]),
   lang: term => new Func('LANG', [term]),
   langMatches: (tag, range) => new Func('LANGMATCHES', [tag, range]),
+  month: term => new Func('MONTH', [term]),
+  year: term => new Func('YEAR', [term]),
 
   construct: patterns => new Construct(patterns),
   describe: variables => new Describe(variables),
