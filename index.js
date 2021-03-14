@@ -2,6 +2,7 @@ const Aggregate = require('./lib/Aggregate')
 const Bind = require('./lib/Bind')
 const CompareFilter = require('./lib/CompareFilter')
 const Construct = require('./lib/Construct')
+const Delete = require('./lib/Delete')
 const Describe = require('./lib/Describe')
 const Filters = require('./lib/Filters')
 const Func = require('./lib/Func')
@@ -34,6 +35,7 @@ module.exports = {
   year: term => new Func('YEAR', [term]),
 
   construct: patterns => new Construct(patterns),
+  delete: patterns => new Delete(patterns),
   describe: variables => new Describe(variables),
   select: (variables, options) => new Select(variables, options),
 

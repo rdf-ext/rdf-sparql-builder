@@ -73,6 +73,12 @@ describe('rdf-sparql-builder', () => {
     })
   })
 
+  describe('delete', () => {
+    it('should be a function', () => {
+      strictEqual(typeof sparql.delete, 'function')
+    })
+  })
+
   describe('select', () => {
     it('should be a function', () => {
       strictEqual(typeof sparql.select, 'function')
