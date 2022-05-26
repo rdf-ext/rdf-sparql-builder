@@ -6,6 +6,7 @@ import Delete from './lib/Delete.js'
 import Describe from './lib/Describe.js'
 import Filters from './lib/Filters.js'
 import Func from './lib/Func.js'
+import Graph from './lib/Graph.js'
 import InFilter from './lib/InFilter.js'
 import Optional from './lib/Optional.js'
 import Select from './lib/Select.js'
@@ -40,6 +41,7 @@ const select = (variables, options) => new Select(variables, options)
 
 const bind = (variable, content) => new Bind(variable, content)
 const filter = filters => new Filters(filters)
+const graph = (graph, children) => smartAddPatterns(new Graph(graph), children)
 const optional = patterns => smartAddPatterns(new Optional(), patterns)
 const union = queries => new Union(queries.map(query => smartAddPatterns(new SubQuery(), query)))
 
@@ -71,6 +73,7 @@ export {
 
   bind,
   filter,
+  graph,
   optional,
   union
 }
