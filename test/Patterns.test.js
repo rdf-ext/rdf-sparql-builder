@@ -1,12 +1,12 @@
-const { strictEqual } = require('assert')
-const { describe, it } = require('mocha')
-const rdf = require('@rdfjs/data-model')
-const GraphPattern = require('../lib/GraphPattern')
-const Patterns = require('../lib/Patterns')
-const SubQuery = require('../lib/SubQuery')
-const TriplePattern = require('../lib/TriplePattern')
-const ignoreWhitespaceEqual = require('./support/ignoreWhitespaceEqual')
-const ns = require('./support/namespace')
+import { strictEqual } from 'assert'
+import rdf from '@rdfjs/data-model'
+import { describe, it } from 'mocha'
+import GraphPattern from '../lib/GraphPattern.js'
+import Patterns from '../lib/Patterns.js'
+import SubQuery from '../lib/SubQuery.js'
+import TriplePattern from '../lib/TriplePattern.js'
+import ignoreWhitespaceEqual from './support/ignoreWhitespaceEqual.js'
+import ns from './support/namespace.js'
 
 describe('Patterns', () => {
   it('should be a constructor', () => {

@@ -3,9 +3,9 @@
   This example builds a query that describes the resources in the variable defined by a union triple pattern.
 
 */
-const rdf = require('@rdfjs/data-model')
-const namespace = require('@rdfjs/namespace')
-const sparql = require('..')
+import rdf from '@rdfjs/data-model'
+import namespace from '@rdfjs/namespace'
+import * as sparql from '../index.js'
 
 const ns = {
   ex: namespace('http://example.org/'),

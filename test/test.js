@@ -1,6 +1,6 @@
-const { strictEqual } = require('assert')
-const { describe, it } = require('mocha')
-const sparql = require('..')
+import { strictEqual } from 'assert'
+import { describe, it } from 'mocha'
+import * as sparql from '../index.js'
 
 describe('rdf-sparql-builder', () => {
   it('should be an object', () => {

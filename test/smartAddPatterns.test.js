@@ -1,11 +1,11 @@
-const { strictEqual } = require('assert')
-const { describe, it } = require('mocha')
-const rdf = require('@rdfjs/data-model')
-const Patterns = require('../lib/Patterns')
-const SubQuery = require('../lib/SubQuery')
-const smartAddPatterns = require('../lib/utils/smartAddPatterns')
-const ignoreWhitespaceEqual = require('./support/ignoreWhitespaceEqual')
-const ns = require('./support/namespace')
+import { strictEqual } from 'assert'
+import rdf from '@rdfjs/data-model'
+import { describe, it } from 'mocha'
+import Patterns from '../lib/Patterns.js'
+import SubQuery from '../lib/SubQuery.js'
+import smartAddPatterns from '../lib/utils/smartAddPatterns.js'
+import ignoreWhitespaceEqual from './support/ignoreWhitespaceEqual.js'
+import ns from './support/namespace.js'
 
 describe('smartAddPatterns', () => {
   it('should be a function', () => {

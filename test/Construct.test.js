@@ -1,10 +1,10 @@
-const { strictEqual } = require('assert')
-const { describe, it } = require('mocha')
-const rdf = require('@rdfjs/data-model')
-const Construct = require('../lib/Construct')
-const TriplePattern = require('../lib/TriplePattern')
-const ignoreWhitespaceEqual = require('./support/ignoreWhitespaceEqual')
-const ns = require('./support/namespace')
+import { strictEqual } from 'assert'
+import rdf from '@rdfjs/data-model'
+import { describe, it } from 'mocha'
+import Construct from '../lib/Construct.js'
+import TriplePattern from '../lib/TriplePattern.js'
+import ignoreWhitespaceEqual from './support/ignoreWhitespaceEqual.js'
+import ns from './support/namespace.js'
 
 describe('Construct', () => {
   it('should be a constructor', () => {
