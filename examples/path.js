@@ -3,9 +3,9 @@
   This example builds a query that includes a triple pattern with a path.
 
 */
-const rdf = require('@rdfjs/data-model')
-const namespace = require('@rdfjs/namespace')
-const sparql = require('..')
+import rdf from '@rdfjs/data-model'
+import namespace from '@rdfjs/namespace'
+import * as sparql from '../index.js'
 
 const ns = {
   ex: namespace('http://example.org/'),

@@ -3,8 +3,8 @@
   This example builds a query that describes a resource
 
 */
-const namespace = require('@rdfjs/namespace')
-const sparql = require('..')
+import namespace from '@rdfjs/namespace'
+import * as sparql from '../index.js'
 
 const ns = {
   ex: namespace('http://example.org/')

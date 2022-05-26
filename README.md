@@ -1,4 +1,6 @@
 # rdf-sparql-builder
+[![build status](https://img.shields.io/github/workflow/status/rdf-ext/rdf-sparql-builder/Test)](https://github.com/rdf-ext/rdf-sparql-builder/actions/workflows/test.yaml)
+[![npm version](https://img.shields.io/npm/v/rdf-sparql-builder.svg)](https://www.npmjs.com/package/rdf-sparql-builder)
 
 `rdf-sparql-builder` helps building [SPARQL](https://www.w3.org/TR/sparql11-query/) queries in JavaScript code.
 Instead of error-prone string concatenations, method chaining allows writing queries without switching the programming language.
@@ -10,7 +12,7 @@ The package exports an object with all the required functions.
 It can be imported in your code like this:
 
 ```javascript
-const sparql = require('rdf-sparql-builder')
+import * as sparql from 'rdf-sparql-builder'
 ```
 
 ## Example
@@ -19,9 +21,9 @@ The following example shows how to build a simple query.
 The `examples` folder contains more examples showing all kinds of features supported by the package. 
 
 ```javascript
-const rdf = require('@rdfjs/data-model')
-const namespace = require('@rdfjs/namespace')
-const sparql = require('rdf-sparql-builder')
+import rdf from '@rdfjs/data-model'
+import namespace from '@rdfjs/namespace'
+import * as sparql from 'rdf-sparql-builder'
 
 const ns = {
   ex: namespace('http://example.org/'),
