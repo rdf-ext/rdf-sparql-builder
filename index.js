@@ -22,6 +22,7 @@ const lte = (a, b) => new CompareFilter('<=', a, b)
 const gte = (a, b) => new CompareFilter('>=', a, b)
 const inFilter = (variable, values) => new InFilter(variable, values)
 
+const count = (variable, as) => new Aggregate('COUNT', variable, as)
 const sum = (variable, as) => new Aggregate('SUM', variable, as)
 const min = (variable, as) => new Aggregate('MIN', variable, as)
 const max = (variable, as) => new Aggregate('MAX', variable, as)
@@ -54,6 +55,7 @@ export {
   gte,
   inFilter as in,
 
+  count,
   sum,
   min,
   max,

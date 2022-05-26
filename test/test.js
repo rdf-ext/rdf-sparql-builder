@@ -49,6 +49,12 @@ describe('rdf-sparql-builder', () => {
     })
   })
 
+  describe('count', () => {
+    it('should be a function', () => {
+      strictEqual(typeof sparql.count, 'function')
+    })
+  })
+
   describe('sum', () => {
     it('should be a function', () => {
       strictEqual(typeof sparql.sum, 'function')
