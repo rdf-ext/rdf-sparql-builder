@@ -53,4 +53,23 @@ describe('Select', () => {
 
     ignoreWhitespaceEqual(select, expected)
   })
+
+  it('should create a select query with the given queryPrefix', () => {
+    const observation = rdf.variable('observation')
+    const temperature = rdf.variable('temperature')
+
+    const select = new Select([temperature], {
+      queryPrefix: '#pragma describe.strategy cbd\n'
+    }).where([
+      new TriplePattern(observation, [ns.ex.measure, ns.ex.temperature], temperature)
+    ])
+
+    const expected = `#pragma describe.strategy cbd
+      SELECT ?temperature WHERE {
+        ?observation <http://example.org/measure>/<http://example.org/temperature> ?temperature .
+      }
+    `
+
+    ignoreWhitespaceEqual(select, expected)
+  })
 })

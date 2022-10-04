@@ -14,7 +14,7 @@ const ns = {
 
 const observation = rdf.variable('observation')
 
-const query = sparql.describe([observation])
+const query = sparql.describe([observation], { queryPrefix: '#pragma describe.strategy cbd\n' })
   .where([
     sparql.union([
       [
