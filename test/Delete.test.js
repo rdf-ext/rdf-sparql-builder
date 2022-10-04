@@ -66,4 +66,23 @@ describe('Delete', () => {
 
     ignoreWhitespaceEqual(del, expected)
   })
+
+  it('should create a delete query with the given queryPrefix', () => {
+    const observation = rdf.variable('observation')
+    const temperature = rdf.variable('temperature')
+
+    const del = new Delete([], {
+      queryPrefix: '#pragma describe.strategy cbd\n'
+    }).where([
+      new TriplePattern(observation, ns.ex.temperature, temperature)
+    ])
+
+    const expected = `#pragma describe.strategy cbd
+      DELETE WHERE {
+        ?observation <http://example.org/temperature> ?temperature .
+      }
+    `
+
+    ignoreWhitespaceEqual(del, expected)
+  })
 })

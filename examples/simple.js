@@ -16,7 +16,7 @@ const observation = rdf.variable('observation')
 const date = rdf.variable('date')
 const temperature = rdf.variable('temperature')
 
-const query = sparql.select([date, temperature])
+const query = sparql.select([date, temperature], { queryPrefix: '#pragma describe.strategy cbd\n' })
   .where([
     [observation, ns.rdf.type, ns.ex.Observation],
     [observation, ns.ex.date, date],

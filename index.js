@@ -35,9 +35,9 @@ const langMatches = (tag, range) => new Func('LANGMATCHES', [tag, range])
 const month = term => new Func('MONTH', [term])
 const year = term => new Func('YEAR', [term])
 
-const construct = patterns => new Construct(patterns)
-const deleteQuery = patterns => new Delete(patterns)
-const describe = variables => new Describe(variables)
+const construct = (patterns, options) => new Construct(patterns, options)
+const deleteQuery = (patterns, options) => new Delete(patterns, options)
+const describe = (variables, options) => new Describe(variables, options)
 const select = (variables, options) => new Select(variables, options)
 
 const bind = (variable, content) => new Bind(variable, content)
