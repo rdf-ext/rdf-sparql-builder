@@ -24,7 +24,7 @@ const query = sparql.construct([
   [observation, ns.ex.date, date],
   [observation, ns.ex.temperature, temperature],
   [observation, ns.ex.humidity, humidity]
-])
+], { queryPrefix: '#pragma describe.strategy cbd\n' })
   .from(ns.ex.graph)
   .where([
     [observation, ns.rdf.type, ns.ex.Observation],

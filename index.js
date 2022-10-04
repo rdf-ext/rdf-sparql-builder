@@ -34,9 +34,9 @@ module.exports = {
   month: term => new Func('MONTH', [term]),
   year: term => new Func('YEAR', [term]),
 
-  construct: patterns => new Construct(patterns),
+  construct: (patterns, options) => new Construct(patterns, options),
   delete: patterns => new Delete(patterns),
-  describe: variables => new Describe(variables),
+  describe: (variables, options) => new Describe(variables, options),
   select: (variables, options) => new Select(variables, options),
 
   bind: (variable, content) => new Bind(variable, content),
