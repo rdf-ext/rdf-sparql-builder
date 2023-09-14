@@ -8,6 +8,8 @@ import Filters from './lib/Filters.js'
 import Func from './lib/Func.js'
 import Graph from './lib/Graph.js'
 import InFilter from './lib/InFilter.js'
+import Insert from './lib/Insert.js'
+import InsertData from './lib/InsertData.js'
 import Optional from './lib/Optional.js'
 import Select from './lib/Select.js'
 import SubQuery from './lib/SubQuery.js'
@@ -38,6 +40,8 @@ const year = term => new Func('YEAR', [term])
 const construct = (patterns, options) => new Construct(patterns, options)
 const deleteQuery = (patterns, options) => new Delete(patterns, options)
 const describe = (variables, options) => new Describe(variables, options)
+const insert = (patterns, options) => new Insert(patterns, options)
+const insertData = (patterns, options) => new InsertData(patterns, options)
 const select = (variables, options) => new Select(variables, options)
 
 const bind = (variable, content) => new Bind(variable, content)
@@ -70,6 +74,8 @@ export {
 
   construct,
   deleteQuery as delete,
+  insert,
+  insertData,
   describe,
   select,
 
