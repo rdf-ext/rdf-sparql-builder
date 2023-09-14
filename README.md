@@ -1,5 +1,6 @@
 # rdf-sparql-builder
-[![build status](https://img.shields.io/github/workflow/status/rdf-ext/rdf-sparql-builder/Test)](https://github.com/rdf-ext/rdf-sparql-builder/actions/workflows/test.yaml)
+
+[![build status](https://img.shields.io/github/actions/workflow/status/rdf-ext/rdf-sparql-builder/test.yaml?branch=master)](https://github.com/rdf-ext/rdf-sparql-builder/actions/workflows/test.yaml)
 [![npm version](https://img.shields.io/npm/v/rdf-sparql-builder.svg)](https://www.npmjs.com/package/rdf-sparql-builder)
 
 `rdf-sparql-builder` helps building [SPARQL](https://www.w3.org/TR/sparql11-query/) queries in JavaScript code.
