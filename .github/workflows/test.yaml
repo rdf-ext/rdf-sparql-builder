@@ -6,9 +6,8 @@ jobs:
     strategy:
       matrix:
         node:
-          - '14'
-          - '16'
           - '18'
+          - '20'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -17,3 +16,4 @@ jobs:
       - run: npm install
       - run: npm test
       - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v3
