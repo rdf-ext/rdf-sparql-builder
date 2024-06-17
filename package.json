@@ -19,7 +19,7 @@
   "homepage": "https://github.com/rdf-ext/rdf-sparql-builder",
   "dependencies": {
     "@rdfjs/data-model": "^2.0.1",
-    "@rdfjs/to-ntriples": "^2.0.0",
+    "@rdfjs/to-ntriples": "^3.0.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
