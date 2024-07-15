@@ -3,6 +3,7 @@ import Bind from './lib/Bind.js'
 import CompareFilter from './lib/CompareFilter.js'
 import Construct from './lib/Construct.js'
 import Delete from './lib/Delete.js'
+import DeleteData from './lib/DeleteData.js'
 import Describe from './lib/Describe.js'
 import Filters from './lib/Filters.js'
 import Func from './lib/Func.js'
@@ -39,6 +40,7 @@ const year = term => new Func('YEAR', [term])
 
 const construct = (patterns, options) => new Construct(patterns, options)
 const deleteQuery = (patterns, options) => new Delete(patterns, options)
+const deleteData = (patterns, options) => new DeleteData(patterns, options)
 const describe = (variables, options) => new Describe(variables, options)
 const insert = (patterns, options) => new Insert(patterns, options)
 const insertData = (patterns, options) => new InsertData(patterns, options)
@@ -74,6 +76,7 @@ export {
 
   construct,
   deleteQuery as delete,
+  deleteData,
   insert,
   insertData,
   describe,
