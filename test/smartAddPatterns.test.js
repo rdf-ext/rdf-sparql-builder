@@ -51,4 +51,38 @@ describe('smartAddPatterns', () => {
 
     ignoreWhitespaceEqual(patterns, expected)
   })
+
+  it('should handle patterns with graph, path and subquery if quads are provided', () => {
+    const patterns = new Patterns()
+
+    smartAddPatterns(patterns, [
+      rdf.quad(ns.ex.observation, ns.ex.measure, ns.ex.temperature),
+      rdf.quad(ns.ex.observation, ns.ex.humidity, rdf.literal('70'), ns.ex.graph),
+      rdf.quad(ns.ex.observation, ns.ex.pressure, ns.ex.pressure, ns.ex.graph),
+      rdf.quad(ns.ex.observation, ns.ex.temperature, rdf.literal('25')),
+      rdf.quad(ns.ex.observation, ns.ex.pressure, ns.ex.pressure, ns.ex.graph),
+      new SubQuery('BIND("a" ?a)')
+    ])
+
+    const expected = `
+      <http://example.org/observation> <http://example.org/measure> <http://example.org/temperature> .
+
+      GRAPH <http://example.org/graph> {
+        <http://example.org/observation> <http://example.org/humidity> "70" .
+        <http://example.org/observation> <http://example.org/pressure> <http://example.org/pressure> .
+      }
+
+      <http://example.org/observation> <http://example.org/temperature> "25" .
+
+      GRAPH <http://example.org/graph> {
+        <http://example.org/observation> <http://example.org/pressure> <http://example.org/pressure> .
+      }
+
+      {
+        BIND("a" ?a)
+      }
+    `
+
+    ignoreWhitespaceEqual(patterns, expected)
+  })
 })
