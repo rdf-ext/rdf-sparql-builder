@@ -37,11 +37,11 @@ describe('InsertData', () => {
     ignoreWhitespaceEqual(ins, expected)
   })
 
-  it('should create a insert query with the given queryPrefix', () => {
+  it('should create an insert query with the given queryPrefix', () => {
     const temperature = rdf.literal('27')
     const humidity = rdf.literal('55')
 
-    const del = new InsertData([
+    const ins = new InsertData([
       new TriplePattern(ns.ex.Observation, ns.ex.temperature, temperature, ns.ex.graph),
       new TriplePattern(ns.ex.Observation, ns.ex.humidity, humidity, ns.ex.graph)
     ], {
@@ -57,6 +57,6 @@ describe('InsertData', () => {
       }
     `
 
-    ignoreWhitespaceEqual(del, expected)
+    ignoreWhitespaceEqual(ins, expected)
   })
 })
