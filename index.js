@@ -15,6 +15,7 @@ import Optional from './lib/Optional.js'
 import Select from './lib/Select.js'
 import SubQuery from './lib/SubQuery.js'
 import Union from './lib/Union.js'
+import MultipleOperations from './lib/MultipleOperations.js'
 import smartAddPatterns from './lib/utils/smartAddPatterns.js'
 
 const eq = (a, b) => new CompareFilter('=', a, b)
@@ -52,6 +53,8 @@ const graph = (graph, children) => smartAddPatterns(new Graph(graph), children)
 const optional = patterns => smartAddPatterns(new Optional(), patterns)
 const union = queries => new Union(queries.map(query => smartAddPatterns(new SubQuery(), query)))
 
+const multipleOperations = (insertData, deleteData) => new MultipleOperations(insertData, deleteData)
+
 export {
   eq,
   ne,
@@ -86,5 +89,7 @@ export {
   filter,
   graph,
   optional,
-  union
+  union,
+
+  multipleOperations
 }
