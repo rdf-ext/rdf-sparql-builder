@@ -37,7 +37,8 @@ describe('DeleteData', () => {
     ignoreWhitespaceEqual(ins, expected)
   })
 
-  it('should create a delete data query based in quads', () => {
+
+  it('should create a delete data query based on quads', () => {
     const temperature = rdf.literal('27')
     const humidity = rdf.literal('55')
 
