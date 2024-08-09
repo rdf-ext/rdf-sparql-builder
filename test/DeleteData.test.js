@@ -38,6 +38,26 @@ describe('DeleteData', () => {
     ignoreWhitespaceEqual(ins, expected)
   })
 
+  it('should create a delete data query based on quads', () => {
+    const temperature = rdf.literal('27')
+    const humidity = rdf.literal('55')
+
+    const ins = new DeleteData([
+      rdf.quad(ns.ex.Observation, ns.ex.temperature, temperature, ns.ex.graph),
+      rdf.quad(ns.ex.Observation, ns.ex.humidity, humidity, ns.ex.graph)
+    ])
+
+    const expected = `DELETE DATA {
+        GRAPH <http://example.org/graph> {
+          <http://example.org/Observation> <http://example.org/temperature> "27" .
+          <http://example.org/Observation> <http://example.org/humidity> "55" .
+        }
+      }
+    `
+
+    ignoreWhitespaceEqual(ins, expected)
+  })
+
   it('should create a delete data query with the given queryPrefix', () => {
     const temperature = rdf.literal('27')
     const humidity = rdf.literal('55')
