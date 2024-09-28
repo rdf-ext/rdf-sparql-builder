@@ -1,4 +1,5 @@
 import Aggregate from './lib/Aggregate.js'
+import AlternativePath from './lib/AlternativePath.js'
 import Bind from './lib/Bind.js'
 import CompareFilter from './lib/CompareFilter.js'
 import Construct from './lib/Construct.js'
@@ -11,10 +12,16 @@ import Graph from './lib/Graph.js'
 import InFilter from './lib/InFilter.js'
 import Insert from './lib/Insert.js'
 import InsertData from './lib/InsertData.js'
+import InversePath from './lib/InversePath.js'
+import NegatedPropertySet from './lib/NegatedPropertySet.js'
+import OneOrMorePath from './lib/OneOrMorePath.js'
 import Optional from './lib/Optional.js'
+import Path from './lib/Path.js'
 import Select from './lib/Select.js'
 import SubQuery from './lib/SubQuery.js'
 import Union from './lib/Union.js'
+import ZeroOrMorePath from './lib/ZeroOrMorePath.js'
+import ZeroOrOnePath from './lib/ZeroOrOnePath.js'
 import smartAddPatterns from './lib/utils/smartAddPatterns.js'
 
 const eq = (a, b) => new CompareFilter('=', a, b)
@@ -52,6 +59,14 @@ const graph = (graph, children) => smartAddPatterns(new Graph(graph), children)
 const optional = patterns => smartAddPatterns(new Optional(), patterns)
 const union = queries => new Union(queries.map(query => smartAddPatterns(new SubQuery(), query)))
 
+const inverse = element => new InversePath(element)
+const not = element => new NegatedPropertySet(element)
+const oneOrMore = element => new OneOrMorePath(element)
+const or = elements => new AlternativePath(elements)
+const sequence = elements => new Path(elements)
+const zeroOrMore = element => new ZeroOrMorePath(element)
+const zeroOrOne = element => new ZeroOrOnePath(element)
+
 export {
   eq,
   ne,
@@ -86,5 +101,13 @@ export {
   filter,
   graph,
   optional,
-  union
+  union,
+
+  inverse,
+  not,
+  oneOrMore,
+  or,
+  sequence,
+  zeroOrMore,
+  zeroOrOne
 }
