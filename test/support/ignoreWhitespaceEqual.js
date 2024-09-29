@@ -1,4 +1,4 @@
-import { strictEqual } from 'assert'
+import { strictEqual } from 'node:assert'
 
 function removeWhitespace (str) {
   return str.toString().replace(/[\t\n\r ]+/g, ' ').trim()

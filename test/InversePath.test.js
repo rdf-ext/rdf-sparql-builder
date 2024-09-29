@@ -1,4 +1,4 @@
-import { strictEqual } from 'assert'
+import { strictEqual } from 'node:assert'
 import { describe, it } from 'mocha'
 import InversePath from '../lib/InversePath.js'
 import Path from '../lib/Path.js'

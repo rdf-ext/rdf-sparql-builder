@@ -14,15 +14,13 @@ import Insert from './lib/Insert.js'
 import InsertData from './lib/InsertData.js'
 import InversePath from './lib/InversePath.js'
 import NegatedPropertySet from './lib/NegatedPropertySet.js'
-import OneOrMorePath from './lib/OneOrMorePath.js'
 import Optional from './lib/Optional.js'
 import Path from './lib/Path.js'
+import QuantityPath from './lib/QuantityPath.js'
 import Select from './lib/Select.js'
 import SubQuery from './lib/SubQuery.js'
 import Union from './lib/Union.js'
 import smartAddPatterns from './lib/utils/smartAddPatterns.js'
-import ZeroOrMorePath from './lib/ZeroOrMorePath.js'
-import ZeroOrOnePath from './lib/ZeroOrOnePath.js'
 
 const eq = (a, b) => new CompareFilter('=', a, b)
 const ne = (a, b) => new CompareFilter('!=', a, b)
@@ -59,13 +57,13 @@ const graph = (graph, children) => smartAddPatterns(new Graph(graph), children)
 const optional = patterns => smartAddPatterns(new Optional(), patterns)
 const union = queries => new Union(queries.map(query => smartAddPatterns(new SubQuery(), query)))
 
+const alternative = elements => new AlternativePath(elements)
 const inverse = element => new InversePath(element)
-const not = element => new NegatedPropertySet(element)
-const oneOrMore = element => new OneOrMorePath(element)
-const or = elements => new AlternativePath(elements)
+const negated = element => new NegatedPropertySet(element)
+const oneOrMore = element => new QuantityPath('+', element)
 const sequence = elements => new Path(elements)
-const zeroOrMore = element => new ZeroOrMorePath(element)
-const zeroOrOne = element => new ZeroOrOnePath(element)
+const zeroOrMore = element => new QuantityPath('*', element)
+const zeroOrOne = element => new QuantityPath('?', element)
 
 export {
   eq,
@@ -92,9 +90,9 @@ export {
   construct,
   deleteQuery as delete,
   deleteData,
+  describe,
   insert,
   insertData,
-  describe,
   select,
 
   bind,
@@ -103,10 +101,10 @@ export {
   optional,
   union,
 
+  alternative,
   inverse,
-  not,
+  negated,
   oneOrMore,
-  or,
   sequence,
   zeroOrMore,
   zeroOrOne

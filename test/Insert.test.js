@@ -1,4 +1,4 @@
-import { strictEqual } from 'assert'
+import { strictEqual } from 'node:assert'
 import rdf from '@rdfjs/data-model'
 import { describe, it } from 'mocha'
 import Insert from '../lib/Insert.js'
