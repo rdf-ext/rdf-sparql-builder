@@ -20,9 +20,9 @@ import Path from './lib/Path.js'
 import Select from './lib/Select.js'
 import SubQuery from './lib/SubQuery.js'
 import Union from './lib/Union.js'
+import smartAddPatterns from './lib/utils/smartAddPatterns.js'
 import ZeroOrMorePath from './lib/ZeroOrMorePath.js'
 import ZeroOrOnePath from './lib/ZeroOrOnePath.js'
-import smartAddPatterns from './lib/utils/smartAddPatterns.js'
 
 const eq = (a, b) => new CompareFilter('=', a, b)
 const ne = (a, b) => new CompareFilter('!=', a, b)
