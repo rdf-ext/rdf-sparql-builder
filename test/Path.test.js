@@ -1,4 +1,4 @@
-import { strictEqual } from 'assert'
+import { strictEqual } from 'node:assert'
 import { describe, it } from 'mocha'
 import Path from '../lib/Path.js'
 import ignoreWhitespaceEqual from './support/ignoreWhitespaceEqual.js'
