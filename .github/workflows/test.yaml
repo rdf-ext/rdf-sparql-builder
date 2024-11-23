@@ -18,4 +18,6 @@ jobs:
       - run: npm test
       - uses: coverallsapp/github-action@v2
         with:
+          flag-name: run Node v${{ matrix.node }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel: true
