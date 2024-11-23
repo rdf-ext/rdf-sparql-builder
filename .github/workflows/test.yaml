@@ -20,3 +20,4 @@ jobs:
       - uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          slug: rdf-ext/rdf-sparql-builder
